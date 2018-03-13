@@ -18,7 +18,7 @@
   "homepage": "https://github.com/stackjie/vam#readme",
   "devDependencies": {
     "less-loader": "^4.1.0",
-    "ts-loader": "^4.0.1",
+    "vue-loader": "^14.2.1",
     "webpack": "^4.1.1"
   },
   "dependencies": {
