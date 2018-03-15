@@ -2,10 +2,10 @@
   <a href="javascript:;" class="weui-btn weui-btn_primary"></a>
 </template>
 
-<script>
+<script lang="ts">
   export default {
-    name: 'vam-button'
-  }
+    name: 'vam-button',
+  };
 </script>
 
 <style lang="less">
