@@ -1,13 +1,13 @@
 <template>
-  <a href="javascript:;" class="weui-btn weui-btn_primary"></a>
+  <div></div>
 </template>
 
 <script lang="ts">
+  interface a {
+
+  };
+
   export default {
-    name: 'vam-button',
+    name: '',
   };
 </script>
-
-<style lang="less">
-  @import "../weui/widget/weui-button/weui-button";
-</style>

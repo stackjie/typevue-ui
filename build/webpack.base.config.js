@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -15,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|vue)$/,
+        test: /\.(js|vue|tsx?)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
         include: [resolve('packages'), resolve('examples'), resolve('test')],
@@ -24,33 +24,28 @@ module.exports = {
         }
       },
       {
-        test: /\.(ts|vue)$/,
-        enforce: 'pre',
-        loader: 'tslint-loader',
-        include: [resolve('packages'), resolve('test')]
-      },
-      {
         test: /\.vue$/,
         loader: 'vue-loader',
         include: [resolve('packages'), resolve('examples'), resolve('test')],
+        options: {
+          ts: {
+            loader: 'ts-loader'
+          }
+        }
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('packages'), resolve('examples'), resolve('test')],
+        include: [resolve('packages'), resolve('examples'), resolve('test')]
       },
       {
-        test: /\.ts$/,
-        use: [{
-          loader: 'babel-loader'
-        }, {
-          loader: 'ts-loader',
-          options: {
-            appendTsSuffixTo: [/\.vue$/],
-            transpileOnly: true // Disable type checking to run it in fork
-          },
-        }],
-        include: [resolve('packages'), resolve('examples'), resolve('test')]
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        include: [resolve('packages'), resolve('examples'), resolve('test')],
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        }
       },
       {
         test: /\.css|.less$/,

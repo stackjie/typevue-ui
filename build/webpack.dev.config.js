@@ -8,7 +8,8 @@ function resolve (dir) {
 }
 
 module.exports = merge(baseConfig ,{
-  entry: resolve('examples/main.js'),
+  mode: 'development',
+  entry: resolve('examples/main.ts'),
   output: {
     filename: 'main.js'
   },
